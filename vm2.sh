@@ -45,8 +45,6 @@ echo $CUR_IP $HOSTNAME > /etc/hosts
         # APACHE 
         
 apt update && apt install apache2 -y
-
-        # NGINX 
         
 rm -r /etc/apache2/sites-enabled/*
 cp /etc/apache2/sites-available/000-default.conf  /etc/apache2/sites-available/$HOSTNAME.conf
@@ -56,7 +54,6 @@ echo "
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
         ErrorLog \${APACHE_LOG_DIR}/error.log
-        CustomLog \${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>" >> /etc/apache2/sites-available/$HOSTNAME.conf
 
 ln -s /etc/apache2/sites-available/$HOSTNAME.conf /etc/apache2/sites-enabled/$HOSTNAME.conf
