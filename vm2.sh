@@ -4,7 +4,7 @@ IF_CFG='/etc/network/interfaces'
 RE_CFG='/etc/resolv.conf'
 HOSTNAME='vm2'
 
-  #IMPORT VAR
+         #IMPORT VAR
   
 source $(dirname $0)/vm2.config
 
@@ -34,7 +34,9 @@ vlan-raw-device $INTERNAL_IF
 modprobe 8021q
 vconfig add $INTERNAL_IF $VLAN
 ifconfig $INTERNAL_IF.$VLAN $APACHE_VLAN_IP
-        # SYS CONFIG 
+    
+      # SYS CONFIG 
+    
 IP=$(ifconfig $INTERNAL_IF | grep 'inet addr' | cut -d: -f2 | awk '{print $1}')
 AP_IP=$(ifconfig $INTERNAL_IF.$VLAN | grep 'inet addr' | cut -d: -f2 | awk '{print $1}')
 hostname $HOSTNAME
