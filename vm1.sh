@@ -49,8 +49,7 @@ ifconfig $INTERNAL_IF.$VLAN $VLAN_IP
 IP=$(ifconfig $EXTERNAL_IF | grep 'inet addr' | cut -d: -f2 | awk '{print $1}')
 HOSTNAME='vm1'
 hostname $HOSTNAME
-echo $IP $HOSTNAME > /etc/hosts
-echo $HOSTNAME $IP >> /etc/hosts
+echo $IP $HOSTNAME >> /etc/hosts
        
        #IPTABLES
 
